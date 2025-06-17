@@ -22,5 +22,5 @@ jobs:
             atlassian_user_email: ${{ secrets.OCEAN__INTEGRATION__CONFIG__ATLASSIAN_USER_EMAIL }}
             atlassian_user_token: ${{ secrets.OCEAN__INTEGRATION__CONFIG__ATLASSIAN_USER_TOKEN }}
             component_repository_mapping:
-              match_by: "name"
-              relation_field: "JiraToRepo"
+              match_by:"name"
+              relation_field:"JiraToRepo"
