@@ -1,0 +1,23 @@
+name: Jira Exporter Workflow
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */1 * * *' # Runs every hour
+
+jobs:
+  run-integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: port-labs/ocean-sail@v1
+        with:
+          type: 'jira'
+          port_client_id: ${{ secrets.OCEAN__PORT__CLIENT_ID }}
+          port_client_secret: ${{ secrets.OCEAN__PORT__CLIENT_SECRET }}
+          port_base_url: https://api.getport.io
+          config: |
+            jira_host: ${{ secrets.OCEAN__INTEGRATION__CONFIG__JIRA_HOST }}
+            atlassian_user_email: ${{ secrets.OCEAN__INTEGRATION__CONFIG__ATLASSIAN_USER_EMAIL }}
+            atlassian_user_token: ${{ secrets.OCEAN__INTEGRATION__CONFIG__ATLASSIAN_USER_TOKEN }}
