@@ -11,7 +11,20 @@ jobs:
     timeout-minutes: 30
 
     steps:
-      - uses: port-labs/ocean-sail@v1
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+
+      - name: Debug Environment Variables
+        run: |
+          echo "Starting Jira Exporter Workflow"
+          echo "Base URL: ${{ secrets.OCEAN__PORT__BASE_URL }}" || echo "No base URL secret"
+          # כאן אפשר להוסיף עוד הדפסות לפי הצורך (לא מדפיסים סודות!)
+
+
+      - name: Run Jira Exporter Action
+        uses: port-labs/ocean-sail@v1
         with:
           type: 'jira'
           port_client_id: ${{ secrets.OCEAN__PORT__CLIENT_ID }}
@@ -21,3 +34,7 @@ jobs:
             jira_host: ${{ secrets.OCEAN__INTEGRATION__CONFIG__JIRA_HOST }}
             atlassian_user_email: ${{ secrets.OCEAN__INTEGRATION__CONFIG__ATLASSIAN_USER_EMAIL }}
             atlassian_user_token: ${{ secrets.OCEAN__INTEGRATION__CONFIG__ATLASSIAN_USER_TOKEN }}
+
+
+      - name: Workflow completed
+        run: echo "Jira Exporter Workflow finished successfully."
