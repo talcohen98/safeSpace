@@ -21,5 +21,4 @@ jobs:
             jira_host: ${{ secrets.OCEAN__INTEGRATION__CONFIG__JIRA_HOST }}
             atlassian_user_email: ${{ secrets.OCEAN__INTEGRATION__CONFIG__ATLASSIAN_USER_EMAIL }}
             atlassian_user_token: ${{ secrets.OCEAN__INTEGRATION__CONFIG__ATLASSIAN_USER_TOKEN }}
-            component_repository_mapping: '{"match_by":"full_name","relation_field":"JiraToRepo"}'
 
