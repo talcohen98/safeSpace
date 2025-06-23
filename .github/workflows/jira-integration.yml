@@ -11,9 +11,6 @@ jobs:
     timeout-minutes: 30
 
     steps:
-      - name: Ensure .ocean_cache directory exists
-        run: mkdir -p .ocean_cache
-
       - uses: port-labs/ocean-sail@v1
         with:
           type: 'jira'
