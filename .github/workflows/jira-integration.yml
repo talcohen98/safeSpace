@@ -1,25 +1,3 @@
-Skip to content
-Navigation Menu
-talcohen98
-safeSpace
-
-Type / to search
-Code
-Issues
-Pull requests
-6
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-Jira Exporter Workflow
-Jira Exporter Workflow #120
-Jobs
-Run details
-Workflow file for this run
-.github/workflows/jira-integration.yml at 6fa2092
 name: Jira Exporter Workflow
 
 on:
