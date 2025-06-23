@@ -1,3 +1,25 @@
+Skip to content
+Navigation Menu
+talcohen98
+safeSpace
+
+Type / to search
+Code
+Issues
+Pull requests
+6
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+Jira Exporter Workflow
+Jira Exporter Workflow #120
+Jobs
+Run details
+Workflow file for this run
+.github/workflows/jira-integration.yml at 6fa2092
 name: Jira Exporter Workflow
 
 on:
@@ -11,14 +33,7 @@ jobs:
     timeout-minutes: 30
 
     steps:
-      - name: Checkout (optional if needed)
-        uses: actions/checkout@v4
-
-      - name: Set working dir to /tmp
-        run: mkdir -p /tmp/ocean-run && cd /tmp/ocean-run
-
-      - name: Run Ocean Sail with Jira
-        uses: port-labs/ocean-sail@v1
+      - uses: port-labs/ocean-sail@v1
         with:
           type: 'jira'
           port_client_id: ${{ secrets.OCEAN__PORT__CLIENT_ID }}
