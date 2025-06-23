@@ -11,14 +11,14 @@ jobs:
     timeout-minutes: 30
 
     steps:
-      # Get the repository files into the runner
+      # If you need the repo files, leave the checkout step in;
+      # otherwise Ocean-Sail will clone what it needs itself.
       - uses: actions/checkout@v4
 
-      # Give the user inside the Ocean-Sail container (UID 1001) write access
-      - name: Fix workspace permissions for Ocean-Sail
-        run: sudo chown -R 1001:0 "$GITHUB_WORKSPACE"
-
       - uses: port-labs/ocean-sail@v1
+        # /tmp is writeable in every GitHub-hosted runner container
+        env:
+          OCEAN_CACHE_DIR: /tmp/ocean_cache
         with:
           type: 'jira'
           port_client_id: ${{ secrets.OCEAN__PORT__CLIENT_ID }}
