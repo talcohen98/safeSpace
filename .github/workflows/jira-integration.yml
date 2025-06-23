@@ -13,9 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Make .ocean_cache writable for the container
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/.ocean_cache"
+          sudo chmod -R 777 "$GITHUB_WORKSPACE/.ocean_cache"
+
       - uses: port-labs/ocean-sail@v1
-        env:
-          OCEAN_CACHE_DIR: /tmp/ocean_cache
         with:
           type: 'jira'
           port_client_id: ${{ secrets.OCEAN__PORT__CLIENT_ID }}
